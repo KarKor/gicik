@@ -4,18 +4,20 @@ public class Polygon {
 
     // konstruktor dokonuje głębokiej kopii tablicy
     public Polygon(Point[] vertices) {
+        this(vertices, new Style("none", "black", 1.0));
+    }
+    // konstruktor kopiujący (głęboka kopia)
+    public Polygon(Polygon other) {
+        this(other.vertices, other.style);
+
+    }
+    public Polygon(Point[] vertices, Style style) {
         this.vertices = new Point[vertices.length];
         for(int i=0; i<vertices.length; i++){
             this.vertices[i] = new Point(vertices[i]);
         }
     }
-    // konstruktor kopiujący (głęboka kopia)
-    public Polygon(Polygon other) {
-        this.vertices = new Point[other.vertices.length];
-        for(int i=0; i<other.vertices.length; i++){
-            this.vertices[i] = new Point(other.vertices[i]);
-        }
-    }
+
 
     public void setPoint(int ix, int x, int y){
         this.vertices[ix].setX(x);
