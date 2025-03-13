@@ -3,7 +3,7 @@ public class Polygon {
     private final Point[] vertices;
     private final Style style;
 
-    // konstruktor dokonuje głębokiej kopii tablicy
+    // konstruktor dokonuje głębokiej kopii tablic
     public Polygon(Point[] vertices) {
         this(vertices, new Style("none", "black", 1));
     }
