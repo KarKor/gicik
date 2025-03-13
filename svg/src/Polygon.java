@@ -3,6 +3,12 @@ public class Polygon {
     private final Point[] vertices;
     private final Style style;
 
+    public static Segment maxSegment (Segment diagonal, Style style){
+        Segment[] perpendiculars = diagonal.perpendicularSegment(
+                diagonal.getCenter(), diagonal.length()/2
+        );
+
+    }
     // konstruktor dokonuje głębokiej kopii tablic
     public Polygon(Point[] vertices) {
         this(vertices, new Style("none", "black", 1));
