@@ -1,23 +1,24 @@
 
 public class Polygon {
     private final Point[] vertices;
+    private final Style style;
 
     // konstruktor dokonuje głębokiej kopii tablicy
     public Polygon(Point[] vertices) {
-        this(vertices, new Style("none", "black", 1.0));
+        this(vertices, new Style("none", "black", 1));
     }
     // konstruktor kopiujący (głęboka kopia)
     public Polygon(Polygon other) {
         this(other.vertices, other.style);
-
     }
+
     public Polygon(Point[] vertices, Style style) {
         this.vertices = new Point[vertices.length];
         for(int i=0; i<vertices.length; i++){
             this.vertices[i] = new Point(vertices[i]);
         }
+        this.style = style;
     }
-
 
     public void setPoint(int ix, int x, int y){
         this.vertices[ix].setX(x);
@@ -51,10 +52,8 @@ public class Polygon {
     }
 
     public String toSvg() {
-        //TODO: dodać klasę Style z polami fill, stroke, stroke_width
-        //TODO: dodać pole style w tej klasie i zamienić atrybut style poniżej
         return "<polygon points=\""+
                 this
-                +"\" style=\"fill:none;stroke:purple;stroke-width:3\" />";
+                +"\" "+style.toSvg()+" />";
     }
 }
